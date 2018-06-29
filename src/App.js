@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
-import './App.css';
 import CheeseList from './components/cheese-list';
+import fetchCheeses from './actions/cheese';
+import { connect } from 'react-redux';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props)
+    componentDidMount() {
+      this.props.dispatch(fetchCheeses());
+    }
 
-    this.cheeses = [
-        "Bath Blue",
-        "Barkham Blue",
-        "Buxton Blue"
-      ];
-  }
   render() {
     return (
-    <CheeseList cheeses={this.cheeses}/>
+    <CheeseList />
     );
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,6 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
-export default function CheeseList(props){
+function CheeseList(props){
 
  const cheeses = props.cheeses.map((cheese, index) => (
     <li key={index}>
@@ -14,4 +15,12 @@ export default function CheeseList(props){
   </ul>
   );
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cheeses: state.cheeses
+  }
+
+}
   
+export default connect(mapStateToProps)(CheeseList);
