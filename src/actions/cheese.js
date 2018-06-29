@@ -31,7 +31,7 @@ export const FETCH_CHEESES = 'FETCH_CHEESES';
 export const fetchCheeses = () => {
   return dispatch => {
     dispatch(fetchCheesesRequest());
-    fetch(`${API_BASE_URL}/cheeses`)
+    fetch(`${API_BASE_URL}/api/cheeses`)
     .then(res => {
       if(!res.ok) {
         throw new Error(res.statusText);
